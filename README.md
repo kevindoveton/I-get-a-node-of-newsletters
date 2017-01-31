@@ -5,4 +5,4 @@ This is a clone of the popular service unroll.me, however I was unhappy with the
 
 To install dependencies run `yarn install`
 
-Edit `secret.example.js` and add your email details.
+Edit `secret.example.js` to add your email details, then rename to `secret.js`.
