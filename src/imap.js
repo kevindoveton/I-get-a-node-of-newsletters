@@ -29,34 +29,34 @@ imap.once('ready', function() {
 				stream.pipe(process.stdout);
 	    	});
 	    
-		msg.once('attributes', function(attrs) {
-	      console.log(prefix + 'Attributes: %s', inspect(attrs, false, 8));
-	    });
+			msg.once('attributes', function(attrs) {
+				console.log(prefix + 'Attributes: %s', inspect(attrs, false, 8));
+		    });
 	    
-		msg.once('end', function() {
-	      console.log(prefix + 'Finished');
-	    });
-	  });
+			msg.once('end', function() {
+				console.log(prefix + 'Finished');
+	    	});
+		});
 	  
-	  f.once('error', function(err) {
-	    console.log('Fetch error: ' + err);
-	  });
+		f.once('error', function(err) {
+			console.log('Fetch error: ' + err);
+		});
 	  
-	  f.once('end', function() {
-	    console.log('Done fetching all messages!');
-	    imap.end();
-	  });
+		f.once('end', function() {
+			console.log('Done fetching all messages!');
+			imap.end();
+		});
 	});
 })
 
 // IMAP Error
 imap.once('error', function(err) {
-  console.log(err);
+	console.log(err);
 });
 
 // IMAP Connection Closed
 imap.once('end', function() {
-  console.log('Connection ended');
+	console.log('Connection ended');
 });
 
 // IMAP Connect
