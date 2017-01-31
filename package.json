@@ -15,6 +15,7 @@
   "keywords": [],
   "dependencies": {
     "imap": "^0.8.19",
+    "juice": "^4.0.2",
     "mailparser": "^0.6.2",
     "pug": "^2.0.0-beta9"
   }
