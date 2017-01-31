@@ -16,38 +16,51 @@ function openInbox(callback) {
 
 imap.once('ready', function() {
 	openInbox(function(err, box) {
-		if (err) throw err;
-	  
-		// get the last message
-		var f = imap.seq.fetch(box.messages.total + ':*', { bodies: ['HEADER.FIELDS (FROM)','TEXT'] });
-	  
-		f.on('message', function(msg, seqno) {
-			console.log('Message #%d', seqno);
-			var prefix = '(#' + seqno + ') ';
+		if (err) throw err;  
 		
-	    	msg.on('body', function(stream, info) {
-				stream.pipe(process.stdout);
-	    	});
-	    
-			msg.once('attributes', function(attrs) {
-				console.log(prefix + 'Attributes: %s', inspect(attrs, false, 8));
-		    });
-	    
-			msg.once('end', function() {
-				console.log(prefix + 'Finished');
-	    	});
-		});
-	  
-		f.once('error', function(err) {
-			console.log('Fetch error: ' + err);
-		});
-	  
-		f.once('end', function() {
-			console.log('Done fetching all messages!');
-			imap.end();
-		});
-	});
-})
+		
+		var yesterday = new Date(); // well today at the moment
+		yesterday.setDate(yesterday.getDate() - 2);
+		
+		imap.search([['SINCE', yesterday]], function(error, results) {
+			if (error) throw error;
+			
+			var f = imap.fetch(results, { bodies: '' });
+			
+			// Imap Message
+			f.on('message', function(msg, seqno) {
+				console.log('Message #%d', seqno);
+				var prefix = '(#' + seqno + ') ';
+			
+		    	msg.on('body', function(stream, info) {
+					// stream.pipe(process.stdout);
+					var fs = require('fs');
+					stream.pipe(fs.createWriteStream('msg-'+seqno+'-boxy.txt'));
+		    	});
+		    
+				msg.once('attributes', function(attrs) {
+					console.log(prefix + 'Attributes: %s', inspect(attrs, false, 8));
+			    });
+		    
+				msg.once('end', function() {
+					console.log(prefix + 'Finished');
+		    	});
+			});
+			
+			// Fetch Error
+	  		f.once('error', function(err) {
+	  			console.log('Fetch error: ' + err);
+	  		});
+			
+			// Fetch End
+	  		f.once('end', function() {
+	  			console.log('Done fetching all messages!');
+	  			imap.end();
+	  		});
+			
+		}); // End Imap Search
+	}); // End openInbox
+}) // end imap ready
 
 // IMAP Error
 imap.once('error', function(err) {
