@@ -53,7 +53,6 @@ module.exports = function(settings, callback) {
 			    
 					msg.once('end', function() {
 
-						callback(msgs);
 			    	});
 				});
 				
@@ -64,8 +63,8 @@ module.exports = function(settings, callback) {
 				
 				// Fetch End
 		  		f.once('end', function() {
-		  			console.log('Done fetching all messages!');
 		  			imap.end();
+					callback(msgs);
 		  		});
 				
 			}); // End Imap Search
