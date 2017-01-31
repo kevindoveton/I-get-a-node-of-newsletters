@@ -4,6 +4,7 @@ module.exports = function() {
 		password: 'password',
 		host: 'mail.example.com',
 		port: 143,
-		tls: true
+		tls: false,
+		autotls: 'always'
 	}
 }
