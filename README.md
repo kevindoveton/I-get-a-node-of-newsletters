@@ -3,6 +3,6 @@
 
 This is a clone of the popular service unroll.me...
 
-To install dependencies run `yarn install`
+To install dependencies run `yarn install`, then run `node node_modules/phantomjs-prebuilt/install.js` to install phantomjs binaries.
 
 Edit `secret.example.js` to add your email details, then rename to `secret.js`.

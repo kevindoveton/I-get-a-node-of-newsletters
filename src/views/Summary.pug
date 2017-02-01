@@ -1,8 +1,13 @@
-doctype html
+body
+	div.container
+		div.title
+			h1 Your daily summary...
 
-ul
-	each email in emails
-		li
-			h1= email.subject
-			h2= email.from[0].name
-			img(src="./img.jpg")
+		div.email
+			for row in emails
+				div.row
+					for email in row
+						div.item
+							h1= email.from[0].name
+							h2= email.subject
+							img(src="./img.jpg")

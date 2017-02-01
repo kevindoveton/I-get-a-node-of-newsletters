@@ -39,4 +39,5 @@ function renderEmail(emails) {
 	};
 	
 	var render = require('./render')(data);
+	console.log(render);
 }
