@@ -1,10 +1,15 @@
+// imap.js
+// connect to an imap inbox and return a
+// mime array of the most recent emails
+
+
 // DEPENDENCIES
 var Imap = require('imap');
 var inspect = require('util').inspect;
 var mailparser = require('mailparser');
 
 // START OF CODE
-
+ 
 
 module.exports = function(settings, callback) {
 	if (settings == undefined) {
