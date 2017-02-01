@@ -32,7 +32,8 @@ module.exports = function(settings, callback) {
 			imap.search([['SINCE', yesterday]], function(error, results) {
 				if (error) throw error;
 				
-				var f = imap.fetch(results, { bodies: 'HEADER.FIELDS (FROM SUBJECT)' });
+				// var f = imap.fetch(results, { bodies: 'HEADER.FIELDS (FROM SUBJECT)' });
+				var f = imap.fetch(results, { bodies: '' });
 				var msgs = [];
 				// Imap Message
 				f.on('message', function(msg, seqno) {
