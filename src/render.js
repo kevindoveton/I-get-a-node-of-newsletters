@@ -32,6 +32,7 @@ var fn = pug.compileFile('./src/views/Summary.pug', {basedir: __dirname});
 module.exports = function(emails) {
 	var out = fn(emails);
 	console.log(out);
+	
 	console.log("----------");
 	var inlineify = require('./inlineify')(out, '');
 	console.log(inlineify);
