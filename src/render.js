@@ -42,9 +42,9 @@ function arrayTo2DArray (list, howMany) {
     return result;
 }
 
-// TODO: this might be okay now.. it wont be forever, we need more characters
 // uid
 // returns 4 random characters
 function uid() {
+	// TODO: this might be okay now.. it wont be forever, we need more characters
     return ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).slice(-4)
 }

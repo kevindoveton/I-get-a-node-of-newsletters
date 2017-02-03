@@ -1,43 +1,65 @@
 @import "includes/foundation-emails"
-	
+
+// colour pallete
+$white : #f0f0f0
+$black : #181712
+$blue : #6abed8
+$grey : #b0aba0
+$darkGrey : #757571
+
+$itemBorder: 0px solid $black
+
 .marginTop
 	margin-top: 1em
 
 .body
 	font-family: 'Helvetica', 'Verdana', 'Sans Serif'
 	
+.container
+	background-color: $white !important
+	
 .title
-	background-color: #111
+	background-color: $black
+	
 	h1
 		padding-top: .5em
-		color: white
+		color: $white
 		text-align: center
 		
 .iheartgithub
-	background-color: #888
+	background-color: $darkGrey
+	border-left: 10px solid $black
 	p
 		margin: 0
-		color: white
+		color: $white
 	p:first-of-type
 		margin-top: 1em
 		
 .item
-	h1,h2 
-		background-color: #666
+	h1,h2
+		// color: 
+		background-color: $blue
 		margin: 0
-		padding-left: 10px
-		padding-right: 10px
+		padding-left: 15px
+		padding-right: 15px
 		
 	h1
 		font-size: 1.5rem
 		padding-top: 10px
 		border-top-right-radius: 10px
 		border-top-left-radius: 10px
+		// border: $itemBorder
+		// border-bottom: none
 		
 	h2
 		font-size: 1rem
 		padding-bottom: 10px
+		// border: $itemBorder
+		// border-top: none
+		// border-bottom: none
 	
 	img
 		border-bottom-left-radius: 10px
 		border-bottom-right-radius: 10px
+		// border: $itemBorder
+		// border-top: none
