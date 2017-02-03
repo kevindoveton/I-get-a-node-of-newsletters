@@ -23,6 +23,13 @@ var imap = require('./imap')(settings.imapConfig, function(msgs) {
 			counter++;
 			if (counter == msgs.length) {
 				renderEmail(emailData);
+				
+				/* 
+				 * DEBUGGING
+				 * write the mailobject to file
+				*/ 
+				// const fs = require('fs');
+				// fs.writeFile(__dirname + '/../emails.json', JSON.stringify(emailData));
 			}
 			
 		}); // end on('end')
