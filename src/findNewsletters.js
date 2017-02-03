@@ -4,10 +4,20 @@
 var checkEmail = function(email) {
 	// probably wont have a text only email from
 	// a marketing campaign
-	if (email.html == undefined) return false;
+	if ((email == undefined) || (email == null)) return false;
+	if ((email.html == undefined) || (email.html == "") || (email.html == null)) return false;
 	
 	// Search the headers
 	if (email.from[0].address.search(/noreply/i) !== -1)
+		return true;
+		
+	if (email.from[0].address.search(/no-reply/i) !== -1)
+		return true;
+	
+	if (email.from[0].name.search(/noreply/i) !== -1)
+		return true;
+		
+	if (email.from[0].name.search(/no-reply/i) !== -1)
 		return true;
 	
 	// Search the text for keywords
@@ -34,13 +44,13 @@ var checkEmail = function(email) {
  * DEBUGGING
  * read the mailobject from file
 */ 
-const fs = require('fs');
-var emails = JSON.parse(fs.readFileSync(__dirname + '/../emails.json', 'utf8'));
-
-for (var i = 0; i < emails.length; i++) {
-	// console.log(i)
-	console.log(checkEmail(emails[i]));
-}
+// const fs = require('fs');
+// var emails = JSON.parse(fs.readFileSync(__dirname + '/../emails.json', 'utf8'));
+// 
+// for (var i = 0; i < emails.length; i++) {
+// 	// console.log(i)
+// 	console.log(checkEmail(emails[i]));
+// }
 
 
 
