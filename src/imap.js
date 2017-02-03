@@ -8,8 +8,22 @@ var Imap = require('imap');
 var inspect = require('util').inspect;
 var mailparser = require('mailparser');
 
-// START OF CODE
-// TODO: Add usage information
+/*
+ * Usage:
+ * var imap = require('./imap');
+ * imap(settings, callback)
+ *
+ * settings: {
+ *	 user: 'email@example.com',
+ *	 password: 'password',
+ *	 host: 'mail.example.com',
+ *	 port: 143,
+ *	 tls: false,
+ *	 autotls: 'always'
+ * }
+ *
+ * callback(messageObject)
+*/
 module.exports = function(settings, callback) {
 	if (settings == undefined) {
 		throw new Error("settings must be defined");
@@ -30,10 +44,10 @@ module.exports = function(settings, callback) {
 			
 			imap.search([['SINCE', yesterday]], function(error, results) {
 				if (error) throw error;
+				var msgs = []; // array of message objects, this is returned in callback
 				
-				// var f = imap.fetch(results, { bodies: 'HEADER.FIELDS (FROM SUBJECT)' });
 				var f = imap.fetch(results, { bodies: '' });
-				var msgs = [];
+				
 				// Imap Message
 				f.on('message', function(msg, seqno) {
 					// console.log('Message #%d', seqno);
@@ -44,17 +58,11 @@ module.exports = function(settings, callback) {
 						stream.on('data', function(chunk) {
 							buffer += chunk.toString('utf8');
 						})
-					// 	// stream.pipe(process.stdout);
-					// 	var fs = require('fs');
-					// 	stream.pipe(fs.createWriteStream('msg-'+seqno+'-boxy.txt'));
+						
 						stream.once('end', function() {
 							msgs.push(buffer);
 						});
 			    	});
-					//   
-					// msg.once('attributes', function(attrs) {
-					// 	console.log(prefix + 'Attributes: %s', inspect(attrs, false, 8));
-				    // });
 			    
 					msg.once('end', function() {
 

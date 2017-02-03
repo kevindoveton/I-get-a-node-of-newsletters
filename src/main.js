@@ -39,9 +39,12 @@ function renderEmail(emails) {
 	};
 	
 	var render = require('./render')(data);
-	// console.log(render);
-	const fs = require('fs');
-
-	fs.writeFile(__dirname + '/../cache/index.html', render);
 	var sendEmail = require('./sendEmail')(render);
+	
+	/* 
+	 * DEBUGGING
+	 * write the render to file
+	*/ 
+	// const fs = require('fs');
+	// fs.writeFile(__dirname + '/../cache/index.html', render);
 }

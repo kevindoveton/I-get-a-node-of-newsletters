@@ -1,6 +1,6 @@
 // render.js
-// return a valid email based on a pug template
-// with css inline
+// return a valid email based on a 
+// pug template with css inline
 var screenshot = require('./screenshot');
 
 const pug = require('pug');
@@ -33,6 +33,7 @@ module.exports = function(emails) {
 	return inlineify;
 };
 
+// converts a array to a 2d array
 function arrayTo2DArray (list, howMany) {
     var result = [];
     while(list[0]) { 
@@ -41,6 +42,9 @@ function arrayTo2DArray (list, howMany) {
     return result;
 }
 
+// TODO: this might be okay now.. it wont be forever, we need more characters
+// uid
+// returns 4 random characters
 function uid() {
     return ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).slice(-4)
 }
