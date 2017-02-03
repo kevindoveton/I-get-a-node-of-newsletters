@@ -6,7 +6,7 @@ const settings = require('./secret.js')()
 
 var emailData = []; // an array of parsed email objects
 
-var imap = require('./imap')(settings, function(msgs) {
+var imap = require('./imap')(settings.imapConfig, function(msgs) {
 	var counter = 0;
 	
 	for (var i = 0; i < msgs.length; i++) {
