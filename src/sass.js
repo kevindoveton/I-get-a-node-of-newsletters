@@ -13,7 +13,6 @@ const sass = require('node-sass')
 */
 module.exports = function(file) {
 	var result = sass.renderSync({
-		// data: scss_content,
 		indentedSyntax: true,
 		outputStyle: 'compressed',
 		includePaths: [
@@ -21,8 +20,6 @@ module.exports = function(file) {
 		],
 		file: file
 	});
-	
-	// console.log(result.css.toString('utf8'))
 	
 	if (result !== undefined) {
 		if (result.css !== undefined) {
