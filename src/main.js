@@ -2,7 +2,7 @@ var MailParser = require('mailparser').MailParser;
 
 // SETTINGS
 // TODO: Load these from a webapp or something
-var settings = require('./secret.js')()
+const settings = require('./secret.js')()
 
 var emailData = []; // an array of parsed email objects
 
@@ -39,5 +39,9 @@ function renderEmail(emails) {
 	};
 	
 	var render = require('./render')(data);
-	console.log(render);
+	// console.log(render);
+	const fs = require('fs');
+
+	// fs.writeFile(__dirname + '/../cache/index.html', render);
+	var sendEmail = require('./sendEmail')(render);
 }

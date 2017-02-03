@@ -7,7 +7,7 @@ const pug = require('pug');
 const sass = require('./sass')
 
 // compile the pug template so we can reuse it
-var fn = pug.compileFile('./src/views/Summary.pug', {basedir: __dirname});
+var fn = pug.compileFile('./src/views/index.pug', {basedir: __dirname});
 
 /* 
  * USAGE: 

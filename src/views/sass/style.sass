@@ -1,52 +1,43 @@
-*
-	margin: 0
-	padding: 0
+@import "includes/foundation-emails"
+	
+.marginTop
+	margin-top: 1em
 
-	
-div.container
+.body
 	font-family: 'Helvetica', 'Verdana', 'Sans Serif'
-	width: 800px
 	
-div.title
+.title
 	background-color: #111
-	color: white
 	h1
-		padding: 1em
+		padding-top: .5em
+		color: white
 		text-align: center
-	
-div.row
-	display: block
-	width: 670px
-	margin: auto
-	
-div.row:first-of-type
-	margin-top: .5em
-	
-div.item
-	display: inline-block
-	width: 300px
-	margin: .5em 1em
-	
-	img
-		max-width: 300px
-		max-height: 300px
-		border-bottom-left-radius: 10px
-		border-bottom-right-radius: 10px
 		
-	h1, h2
-		background-color: #333
-		color: #fff
+.iheartgithub
+	background-color: #888
+	p
+		margin: 0
+		color: white
+	p:first-of-type
+		margin-top: 1em
+		
+.item
+	h1,h2 
+		background-color: #666
+		margin: 0
 		padding-left: 10px
 		padding-right: 10px
-		height: 1.3em
-		overflow: hidden
-
+		
 	h1
+		font-size: 1.5rem
+		padding-top: 10px
 		border-top-right-radius: 10px
 		border-top-left-radius: 10px
-		padding-top: 10px
-		font-size: 1.5em
 		
 	h2
+		font-size: 1rem
 		padding-bottom: 10px
-		font-size: 1em
+	
+	img
+		border-bottom-left-radius: 10px
+		border-bottom-right-radius: 10px
