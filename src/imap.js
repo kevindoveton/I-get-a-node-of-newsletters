@@ -9,8 +9,7 @@ var inspect = require('util').inspect;
 var mailparser = require('mailparser');
 
 // START OF CODE
- 
-
+// TODO: Add usage information
 module.exports = function(settings, callback) {
 	if (settings == undefined) {
 		throw new Error("settings must be defined");
@@ -27,7 +26,7 @@ module.exports = function(settings, callback) {
 			if (err) throw err;  
 			
 			var yesterday = new Date(); // well today at the moment
-			yesterday.setDate(yesterday.getDate() - 2);
+			yesterday.setDate(yesterday.getDate() - 5);
 			
 			imap.search([['SINCE', yesterday]], function(error, results) {
 				if (error) throw error;

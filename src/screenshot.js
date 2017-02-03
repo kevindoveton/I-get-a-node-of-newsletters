@@ -19,9 +19,10 @@ var options = {
 	}
 }
 
-module.exports = function(email,name) {
+module.exports = function(email, name) {
 	webshot(email, 'cache/'+name+'.png', options, function(err) {
-	  // screenshot now saved to cache as png
+		if (err != undefined) console.log(err);
+	  	// screenshot now saved to cache as png
 		scaleImage(name);
 	}); // end webshot
 

@@ -18,6 +18,7 @@
     "juice": "^4.0.2",
     "lwip": "^0.0.9",
     "mailparser": "^0.6.2",
+    "node-sass": "^4.5.0",
     "nodemailer": "^3.0.0",
     "pug": "^2.0.0-beta9",
     "webshot": "^0.18.0"
