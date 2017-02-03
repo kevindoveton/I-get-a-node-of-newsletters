@@ -42,6 +42,6 @@ function renderEmail(emails) {
 	// console.log(render);
 	const fs = require('fs');
 
-	// fs.writeFile(__dirname + '/../cache/index.html', render);
+	fs.writeFile(__dirname + '/../cache/index.html', render);
 	var sendEmail = require('./sendEmail')(render);
 }

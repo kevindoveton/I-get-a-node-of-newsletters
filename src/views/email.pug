@@ -1,0 +1,38 @@
+// header
+table.row.firstRow.title
+	tbody
+		tr
+			th.columns.first.last
+				table
+					tr
+						th
+							h1 your daily summary...
+						th.expander
+	
+// contents
+for row in emails
+	table.row.itemContainer.marginTop
+		tbody
+			tr
+				- var first = true;
+				for email in row
+					if (i == 0)
+						th.columns.large-4.small-12.item(class=i ? "first" : "last")
+							- i = false; // not first anymore
+							table
+								tr
+									th
+										h1= email.from[0].name
+										h2= email.subject
+										//- img(src="http://kdoveton.com/mail/cache/"+email.imgName+".jpg")
+
+// made with love								
+table.row.iheartgithub
+	tbody
+		tr
+			th.columns.first.last.large-12.small-12
+				table
+					tr
+						th
+							p Made with &hearts; by Kevin Doveton
+							p https://github.com/kevindoveton/I-get-a-node-of-newsletters

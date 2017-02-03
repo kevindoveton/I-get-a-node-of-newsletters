@@ -1,0 +1,53 @@
+doctype html
+head
+	meta(name="viewport" content="width=device-width")
+	meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+	link(type="text/css" rel="stylesheet" href="css/style.css")
+
+body
+	//- Boilerpot
+	table.body(data-made-with-foundation)
+		tr
+			td.float-center(align="center", valign="top")
+				center
+					//- Main container
+					table.container
+						tr
+							td
+								// header
+								table.row.firstRow.title
+									tbody
+										tr
+											th.columns.first.last
+												table
+													tr
+														th
+															h1 your daily summary...
+														th.expander
+									
+								// contents
+								for row in emails
+									table.row.itemContainer(class=(row == emails[0]) ? "marginTop" : "")
+										tbody
+											tr
+												- var first = true;
+												for email in row
+													th.columns.large-4.small-12.item(class=i ? "first" : "last")
+														- i = false; // not first anymore
+														table
+															tr
+																th
+																	h1= email.from[0].name.substr(0,20)
+																	h2= email.subject.substr(0, 35)
+																	img(src="http://kdoveton.com/mail/cache/"+email.imgName+".jpg")
+
+								// made with love								
+								table.row.iheartgithub
+									tbody
+										tr
+											th.columns.first.last.large-12.small-12
+												table
+													tr
+														th
+															p Made with &hearts; by Kevin Doveton
+															p https://github.com/kevindoveton/I-get-a-node-of-newsletters
