@@ -17,6 +17,7 @@
   },
   "keywords": [],
   "dependencies": {
+    "express": "^4.14.1",
     "imap": "^0.8.19",
     "juice": "^4.0.2",
     "lwip": "^0.0.9",
