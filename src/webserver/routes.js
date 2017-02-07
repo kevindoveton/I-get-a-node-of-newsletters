@@ -1,8 +1,8 @@
 module.exports = function(app, express) {
 	// static files
 	app.use('/cache', express.static('cache'));
-
-	// aux home page
+	
+	// home page
 	app.get('/', function (req, res) {
 		res.send('no service available');
 	});
