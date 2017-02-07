@@ -2,10 +2,11 @@
   "name": "I-get-a-node-of-newsletters",
   "version": "1.0.0",
   "description": "a (better) copy of unroll.me.",
-  "main": "main.js",
+  "main": "src/main.js",
   "author": "Kevin Doveton <kevin@kdoveton.com> (https://kdoveton.com)",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+	"start": "node src/webserver/run.js"
   },
   "devDependencies": {
     "mocha": "^3.2.0",

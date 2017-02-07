@@ -1,6 +1,6 @@
 module.exports = function(app, express) {
 	// static files
-	app.use('/static', express.static('static'));
+	app.use('/static', express.static('cache'));
 
 	// aux home page
 	app.get('/', function (req, res) {

@@ -38,11 +38,14 @@ function scaleImage(name) {
 			
 			canvas.paste(0,0,image, function(err, img) {
 				if (err != undefined) console.log(err);
+				// image = null; // force gc
 				
 				img.contain(313,313, function(err, i) {
 					if (err != undefined) console.log(err);
+					// canvas = null; // force gc
 					
 					i.writeFile(__dirname+'/../cache/'+name+'.jpg', 'jpg', {quality: 75}, function(err) { 
+						// img = null; // force gc
 						if (err != undefined) console.log(err);
 						
 						fs.unlink(__dirname+'/../cache/'+name+'.png'); // delete the png file
