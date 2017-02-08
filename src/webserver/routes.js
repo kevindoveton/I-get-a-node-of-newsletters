@@ -4,7 +4,17 @@ module.exports = function(app, express) {
 	
 	// home page
 	app.get('/', function (req, res) {
-		res.send('no service available');
+		res.render('index');
+	});
+	
+	app.get('/dev', function (req, res) {
+		var sass = require('../sass')('src/webserver/views/sass/styles.sass', ['src/webserver/views/sass/includes']);
+		const pug = require('pug');
+		var fn = pug.compileFile('./src/webserver/views/index.pug');
+		
+		var inlineify = require('../inlineify')
+		var result = inlineify(fn(), sass);
+		res.send(result);
 	});
 	
 	app.get('/test', function (req, res) {

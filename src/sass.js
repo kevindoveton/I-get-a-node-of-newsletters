@@ -11,13 +11,16 @@ const sass = require('node-sass')
  * const sass = require('./sass');
  * var css = sass('./style.sass');
 */
-module.exports = function(file) {
+module.exports = function(file, includes) {	
+	if (includes == undefined) {
+		includes = [
+			'./views/sass/'
+		];
+	}
 	var result = sass.renderSync({
 		indentedSyntax: true,
 		outputStyle: 'compressed',
-		includePaths: [
-			'./views/sass/'
-		],
+		includePaths: includes,
 		file: file
 	});
 	
