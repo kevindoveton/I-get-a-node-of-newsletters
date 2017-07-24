@@ -5,7 +5,7 @@
 
 var webshot = require('webshot');
 var fs = require('fs');
-var lwip = require('lwip');
+var lwip = require('pajk-lwip');
 
 var options = {
 	siteType: 'html',

@@ -26,7 +26,7 @@ module.exports = function(emails) {
 	emails.emails = arrayTo2DArray(emails.emails, 2)
 	var out = fn(emails);
 	
-	const css = sass('./src/views/sass/style.sass');
+	const css = sass('./src/webserver/views/sass/styles.sass');
 	
 	var inlineify = require('./inlineify')(out, css);
 	

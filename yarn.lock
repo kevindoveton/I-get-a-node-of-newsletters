@@ -1251,15 +1251,6 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.1"
     yallist "^2.0.0"
 
-lwip@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/lwip/-/lwip-0.0.9.tgz#28b4169835d27ca29325e75fd1b883ae37b50fcc"
-  dependencies:
-    async "^2.0.0-rc.5"
-    bindings "^1.2.1"
-    decree "0.0.6"
-    nan "^2.3.2"
-
 mailparser@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/mailparser/-/mailparser-0.6.2.tgz#03c486039bdf4df6cd3b6adcaaac4107dfdbc068"
@@ -1379,7 +1370,7 @@ ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
-nan@^2.3.2:
+nan@^2.3.2, nan@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.1.tgz#d5b01691253326a97a2bbee9e61c55d8d60351e2"
 
@@ -1528,6 +1519,15 @@ osenv@0:
   dependencies:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
+
+pajk-lwip@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/pajk-lwip/-/pajk-lwip-0.2.0.tgz#edcd33406cf6b86332b762f0335047a5dd85a036"
+  dependencies:
+    async "^2.0.0-rc.5"
+    bindings "^1.2.1"
+    decree "0.0.6"
+    nan "^2.5.1"
 
 parse-json@^2.2.0:
   version "2.2.0"
@@ -1834,13 +1834,9 @@ require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
 
-resolve@1.1.x:
+resolve@1.1.x, resolve@^1.1.6:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
-
-resolve@^1.1.6:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.2.0.tgz#9589c3f2f6149d1417a40becc1663db6ec6bc26c"
 
 rewire@^2.5.2:
   version "2.5.2"
