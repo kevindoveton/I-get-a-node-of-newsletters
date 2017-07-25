@@ -38,5 +38,5 @@ jspm_packages
 
 # Password / User info
 secret.js
-
+*.env
 cache/
