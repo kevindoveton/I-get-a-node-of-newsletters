@@ -20,38 +20,46 @@ var options = {
 }
 
 module.exports = function(email, name) {
-	webshot(email, 'cache/'+name+'.png', options, function(err) {
-		if (err != undefined) console.log(err);
-	  	// screenshot now saved to cache as png
-		scaleImage(name);
-	}); // end webshot
+	return new Promise((resolve, reject) => {
+		webshot(email, 'cache/'+name+'.png', options, function(err) {
+			if (err != undefined) console.log(err);
+		  	// screenshot now saved to cache as png
+			scaleImage(name).then(() => {
+				resolve();
+			});
+		}); // end webshot
+	})
 
 } // end module.exports
 
 // TODO: Surely there is a more efficient way to do this
 function scaleImage(name) {
-	lwip.open(__dirname+'/../cache/'+name+'.png', function(err, image){
-		if (err != undefined) console.log(err);
-		
-		lwip.create(image.width(), image.height(), 'white', function(err, canvas) {
+	return new Promise((resolve, reject) => {
+		lwip.open(__dirname+'/../cache/'+name+'.png', function(err, image){
 			if (err != undefined) console.log(err);
 			
-			canvas.paste(0,0,image, function(err, img) {
+			lwip.create(image.width(), image.height(), 'white', function(err, canvas) {
 				if (err != undefined) console.log(err);
-				// image = null; // force gc
 				
-				img.contain(313,313, function(err, i) {
+				canvas.paste(0,0,image, function(err, img) {
 					if (err != undefined) console.log(err);
-					// canvas = null; // force gc
+					// image = null; // force gc
 					
-					i.writeFile(__dirname+'/../cache/'+name+'.jpg', 'jpg', {quality: 75}, function(err) { 
-						// img = null; // force gc
+					img.contain(313,313, function(err, i) {
 						if (err != undefined) console.log(err);
+						// canvas = null; // force gc
 						
-						fs.unlink(__dirname+'/../cache/'+name+'.png'); // delete the png file
+						i.writeFile(__dirname+'/../cache/'+name+'.jpg', 'jpg', {quality: 75}, function(err) { 
+							// img = null; // force gc
+							if (err != undefined) console.log(err);
+							
+							fs.unlink(__dirname+'/../cache/'+name+'.png'); // delete the png file
+							resolve();
+						}); // end image.writeFile
 					}); // end image.writeFile
-				}); // end image.writeFile
-			}); // end canvas.paste
-		}); // end lwip.create
-	}); // end lwip.open
+				}); // end canvas.paste
+			}); // end lwip.create
+		}); // end lwip.open
+	})
+	
 }

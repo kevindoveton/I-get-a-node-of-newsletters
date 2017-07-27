@@ -6,11 +6,11 @@ describe('render', function() {
 	
 	describe('uid', function() {
 		
-		it('should be 4 characters', function() {
+		it('should be 25 characters', function() {
 			var render = rewire('../src/render');
 			uid = render.__get__('uid');
 			
-			var expected = 4;
+			var expected = 25;
 			var result = uid().length
 			
 			assert.equal(expected, result);

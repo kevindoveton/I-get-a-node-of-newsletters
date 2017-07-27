@@ -1,6 +1,6 @@
 var sendEmail = function() {
 	var MailParser = require('mailparser').MailParser;
-
+	console.log(process.env.AWS_SECRET_KEY)
 	// SETTINGS
 	// TODO: Load these from a webapp or something
 	const settings = require('./secret.js')()
