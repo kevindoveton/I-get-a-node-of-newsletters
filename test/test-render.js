@@ -10,7 +10,7 @@ describe('render', function() {
 			var render = rewire('../src/render');
 			uid = render.__get__('uid');
 			
-			var expected = 25;
+			var expected = 20;
 			var result = uid().length
 			
 			assert.equal(expected, result);

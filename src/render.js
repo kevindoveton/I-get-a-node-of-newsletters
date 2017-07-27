@@ -64,5 +64,5 @@ function arrayTo2DArray (list, howMany) {
 // uid
 // returns 25 random characters
 function uid() {
-		return Math.random().toString(36).substring(2);
+		return Math.random().toString(36).substring(2,22);
 }
