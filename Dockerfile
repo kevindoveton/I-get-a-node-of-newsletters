@@ -1,11 +1,21 @@
-FROM kkarczmarczyk/node-yarn:6.9-wheezy
+FROM library/node:7-alpine
+ENV NPM_CONFIG_LOGLEVEL warn
+ENV APP_DIR /usr/src/app
 
-RUN mkdir -p /opt/app && cd /opt/app
-WORKDIR /opt/app
+RUN mkdir -p ${APP_DIR}
+WORKDIR ${APP_DIR}
 
-ADD package.json yarn.lock ./
-RUN yarn
+# install pm2 first
+RUN npm i -g pm2
 
-ADD ./src ./src
+# install app dependencies
+ADD package.json ./
+RUN npm install
 
-CMD npm start
+# add the rest of the files
+ADD processes.json .
+ADD src/ ./src/
+
+EXPOSE 3000
+
+CMD ["pm2", "start", "processes.json", "--no-daemon"]

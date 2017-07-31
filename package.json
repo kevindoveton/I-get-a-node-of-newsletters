@@ -20,14 +20,18 @@
 	},
 	"keywords": [],
 	"dependencies": {
+		"@google-cloud/pubsub": "^0.13.2",
 		"aws-sdk": "^2.89.0",
 		"express": "^4.14.1",
 		"imap": "^0.8.19",
 		"juice": "^4.0.2",
 		"mailparser": "^0.6.2",
+		"mongoose": "^4.11.4",
+		"mongoose-unique-validator": "^1.0.5",
 		"node-sass": "^4.5.0",
 		"nodemailer": "^3.0.0",
 		"pajk-lwip": "^0.2.0",
+		"postmark": "^1.4.1",
 		"pug": "^2.0.0-beta9",
 		"webshot": "^0.18.0"
 	}
